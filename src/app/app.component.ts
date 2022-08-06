@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ART.Occupancy.UI';
+  checked1: boolean = false;
+  checked2: boolean = true;
 }
