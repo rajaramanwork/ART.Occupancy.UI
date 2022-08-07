@@ -11,6 +11,11 @@ import { AppComponent } from './app.component';
 
 /* PrimeNG Imports*/
 import {InputSwitchModule} from 'primeng/inputswitch';
+import { ButtonModule } from 'primeng/button';
+import { SidebarModule } from 'primeng/sidebar';
+import {CardModule} from 'primeng/card';
+import {BadgeModule} from 'primeng/badge';
+import {KnobModule} from 'primeng/knob';
 
 /* Custom App Components */
 import { ProductListComponent } from '../app/features/product-list/product-list.component';
@@ -26,6 +31,11 @@ import { ProductListComponent } from '../app/features/product-list/product-list.
     AppRoutingModule,
     FormsModule,
     InputSwitchModule,
+    SidebarModule,
+    ButtonModule,
+    CardModule,
+    BadgeModule,
+    KnobModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent }
     ])
