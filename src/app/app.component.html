@@ -305,28 +305,100 @@
   <div class="col-12">
     <p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>
   </div>
-  <div class="col-4">
-    <p-card header="Occupancy Rate" [style]="{'background-color': '#3A3A3A', 'margin-bottom': '1em', 'color': 'white'}" >
-      <p-button label="Library" icon="pi pi-arrow-down"  size="small" styleClass="p-button-success" badge="8%" badgeClass="p-badge-success"></p-button>
-      &nbsp;
-      <p-button label="Office" icon="pi pi-arrow-up"  size="small" styleClass="p-button-danger" badge="22%" badgeClass="p-badge-danger"></p-button>
-      &nbsp;
-      <p-button label="Rest Rooms" icon="pi pi-arrow-up"  size="small" styleClass="p-button-danger" badge="4%" badgeClass="p-badge-danger"></p-button>
+
+  <div class="col-8"> 
+    <p-card  header="Occupancy Curve" [style]="{ 'margin-bottom': '0em'}">
+    <div class="grid">
+      <div class="col-10">
+      </div>
+      <div class="col-2">
+        <p-selectButton [options]="occupancyCurveOptions" optionLabel="name" optionValue="value"></p-selectButton>
+      </div>
+      <div class="col-12">
+        <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+      </div>
+    </div>
     </p-card>
-    
   </div>
   <div class="col-4">
-    <p-card  [style]="{'background-color': '#3A3A3A', 'margin-bottom': '0em', 'color': 'white'}">
-
-   </p-card>
+    <p-card  [style]="{ 'margin-bottom': '0em'}">
+      <div class="grid">
+        <div class="col-8"><b>Room Utilization</b></div>
+        <div class="col-4">
+          <p-dropdown [options]="zones" [(ngModel)]="selectedZone" optionLabel="name"></p-dropdown>
+        </div>
+        <div class="col-12">
+          <p-table [value]="spaces" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="name">Space <p-sortIcon field="location"></p-sortIcon></th>
+                    <th pSortableColumn="timeOccupied">% Time Occupied <p-sortIcon field="timeOccupied"></p-sortIcon></th>
+                    <th pSortableColumn="ageTimeOccupied">Avg. Time Occupied <p-sortIcon field="ageTimeOccupied"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-space>
+                <tr>
+                    <td><b>{{space.name}}</b></td>
+                    <td>{{space.timeOccupied}}</td>
+                    <td>{{space.ageTimeOccupied}}</td>
+                </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </p-card>
   </div>
-  <div class="col-4">3</div>
 
-  <div class="col-6">6</div>
-  <div class="col-6">6</div>
+  <div class="col-8">
+    <p-card  header="Current Occupancy" [style]="{ 'margin-bottom': '0em'}"> 
+      <p-table [value]="occupancies">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="location">Type <p-sortIcon field="location"></p-sortIcon></th>
+                <th pSortableColumn="zone">Name <p-sortIcon field="zone"></p-sortIcon></th>
+                <th pSortableColumn="currentOccupancy">Current <p-sortIcon field="currentOccupancy"></p-sortIcon></th>
+                <th pSortableColumn="maxOccupancy">Capacity <p-sortIcon field="maxOccupancy"></p-sortIcon></th>
+                <th pSortableColumn="percentageOfOccupancy">% Occupancy <p-sortIcon field="percentageOfOccupancy"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-occupancy>
+            <tr>
+                <td>{{occupancy.location}}</td>
+                <td>{{occupancy.zone}}</td>
+                <td>{{occupancy.currentOccupancy}}</td>
+                <td>{{occupancy.maxOccupancy}}</td>
+                <td>{{occupancy.percentageOfOccupancy}}</td>
+            </tr>
+        </ng-template>
+      </p-table>
+  </p-card>
+  </div>
+  <div class="col-4">
+
+    <div class="grid">
+      <div class="col-12">
+        <p-card header="Occupancy Rates" [style]="{ 'margin-bottom': '0em'}" >
+          <p-button label="Library" icon="pi pi-arrow-down"  size="small" styleClass="p-button-success" badge="-8%" badgeClass="p-badge-success"></p-button>&nbsp;
+          <p-button label="Office" icon="pi pi-arrow-up"  size="small" styleClass="p-button-danger" badge="+22%" badgeClass="p-badge-danger"></p-button>&nbsp;
+          <p-button label="Rest Rooms" icon="pi pi-arrow-up"  size="small" styleClass="p-button-danger" badge="+4%" badgeClass="p-badge-danger"></p-button>
+        </p-card>
+      </div>
+      <div class="col-12">
+        <p-card  header="Peak Occupancies" [style]="{ 'margin-bottom': '0em'}"></p-card>
+      </div>
+    </div>
+  </div>
 </div>
-<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-  <h1 style="font-weight:normal">Left Sidebar</h1>
-  <p-button type="button" (click)="visibleSidebar1 = false" label="Save" styleClass="p-button-success"></p-button>
-  <p-button type="button" (click)="visibleSidebar1 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
-</p-sidebar>
+
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000" style="background-color:'red'">
+  <div class="flex flex-row flex-wrap card-container blue-container">
+    <div class="flex align-items-center justify-content-center w-4rem h-4rem font-bold border-round m-4">
+      <p-image src="assets/Wilson.png" alt="Image"></p-image>
+    </div>
+    <div class="flex align-items-center justify-content-center w-4rem h-4rem font-bold border-round m-4">
+      <span style="text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;color:rgb(255, 255, 255)">Woodrow Wilson Middle School</span>
+    </div>
+  </div>
+  <p-panelMenu [model]="menuItems" [style]="{'width':'300px'}"></p-panelMenu>  
+<p-sidebar>

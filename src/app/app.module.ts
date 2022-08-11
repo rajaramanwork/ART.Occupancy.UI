@@ -16,14 +16,24 @@ import { SidebarModule } from 'primeng/sidebar';
 import {CardModule} from 'primeng/card';
 import {BadgeModule} from 'primeng/badge';
 import {KnobModule} from 'primeng/knob';
+import {TableModule} from 'primeng/table';
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {ImageModule} from 'primeng/image';
+import {AvatarModule} from 'primeng/avatar';
+import {AccordionModule} from 'primeng/accordion';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {DropdownModule} from 'primeng/dropdown';
+
+/* CanvasJS Imports*/
+import * as CanvasJSAngularChart from '../assets/canvasjs/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 /* Custom App Components */
-import { ProductListComponent } from '../app/features/product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    CanvasJSChart
   ],
   imports: [
     BrowserModule,
@@ -36,9 +46,13 @@ import { ProductListComponent } from '../app/features/product-list/product-list.
     CardModule,
     BadgeModule,
     KnobModule,
-    RouterModule.forRoot([
-      { path: '', component: ProductListComponent }
-    ])
+    TableModule,
+    PanelMenuModule,
+    ImageModule,
+    AvatarModule,
+    AccordionModule,
+    SelectButtonModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

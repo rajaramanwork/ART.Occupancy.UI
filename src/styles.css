@@ -3,4 +3,8 @@
 @import  "~primeng/resources/primeng.min.css";
 @import  "~primeflex/primeflex.css";
 
-body {background-color: black;}
+body {background-color: whitesmoke;}
+
+.p-sidebar {
+    /*background-color: slategrey!important;*/
+}
