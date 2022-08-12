@@ -1,0 +1,27 @@
+<p-card  [style]="{ 'margin-bottom': '0em'}">
+    <div class="grid">
+      <div class="col-8"><b>Room Utilization</b></div>
+      <div class="col-4">
+        <p-dropdown [options]="zones" [(ngModel)]="selectedZone" optionLabel="name"></p-dropdown>
+      </div>
+      <div class="col-12">
+        <p-table [value]="spaces" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th pSortableColumn="name">Space <p-sortIcon field="location"></p-sortIcon></th>
+                  <th pSortableColumn="timeOccupied">% Time Occupied <p-sortIcon field="timeOccupied"></p-sortIcon></th>
+                  <th pSortableColumn="ageTimeOccupied">Avg. Time Occupied <p-sortIcon field="ageTimeOccupied"></p-sortIcon></th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-space>
+              <tr>
+                  <td><b>{{space.name}}</b></td>
+                  <td>{{space.timeOccupied}}</td>
+                  <td>{{space.ageTimeOccupied}}</td>
+              </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>

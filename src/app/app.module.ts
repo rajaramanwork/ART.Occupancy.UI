@@ -29,11 +29,15 @@ import * as CanvasJSAngularChart from '../assets/canvasjs/canvasjs.angular.compo
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 /* Custom App Components */
+import { OccupancyCurveComponent } from './features/occupancy-curve/occupancy-curve.component';
+import { RoomUtilisationComponent } from './features/room-utilisation/room-utilisation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CanvasJSChart
+    CanvasJSChart,
+    OccupancyCurveComponent,
+    RoomUtilisationComponent
   ],
   imports: [
     BrowserModule,

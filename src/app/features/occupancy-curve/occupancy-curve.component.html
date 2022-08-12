@@ -1,0 +1,12 @@
+<p-card  header="Occupancy Curve" [style]="{ 'margin-bottom': '0em'}">
+    <div class="grid">
+        <div class="col-10">
+        </div>
+        <div class="col-2">
+            <p-selectButton [options]="occupancyCurveOptions" optionLabel="name" optionValue="value"></p-selectButton>
+        </div>
+        <div class="col-12">
+            <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+        </div>
+    </div>
+</p-card>
