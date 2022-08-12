@@ -32,6 +32,7 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 import { OccupancyCurveComponent } from './features/occupancy-curve/occupancy-curve.component';
 import { RoomUtilisationComponent } from './features/room-utilisation/room-utilisation.component';
 import { CurrentOccupationComponent } from './features/current-occupation/current-occupation.component';
+import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-rates.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CurrentOccupationComponent } from './features/current-occupation/curren
     CanvasJSChart,
     OccupancyCurveComponent,
     RoomUtilisationComponent,
-    CurrentOccupationComponent
+    CurrentOccupationComponent,
+    OccupancyRatesComponent
   ],
   imports: [
     BrowserModule,
