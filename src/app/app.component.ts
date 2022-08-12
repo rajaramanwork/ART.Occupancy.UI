@@ -2,9 +2,6 @@ import { Component, ViewEncapsulation  } from '@angular/core';
 import { PrimeNGConfig, PrimeIcons } from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 
-
-import { Occupancy } from '././features/Occupancy';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -50,48 +47,7 @@ export class AppComponent {
   violationsPerYear: number = 25;
   violationsPerMonth: number = 50;
   violationsPerDay: number = 15;
-  occupancies:Occupancy[] = 
-  [
-    {
-      id: 1,
-      location: 'Restrooms',
-      zone: 'Zone 1 East',
-      currentOccupancy: 12,
-      maxOccupancy: 40,
-      percentageOfOccupancy: '45%'
-    },
-    {
-      id: 2,
-      location: 'Restrooms',
-      zone: 'Zone 1 West',
-      currentOccupancy: 12,
-      maxOccupancy: 40,
-      percentageOfOccupancy: '45%'
-    },
-    {
-      id: 3,
-      location: 'Library',
-      zone: 'Zone 1 East',
-      currentOccupancy: 2,
-      maxOccupancy: 40,
-      percentageOfOccupancy: '4%'
-    },{
-      id: 4,
-      location: 'Library',
-      zone: 'Zone 1 South',
-      currentOccupancy: 22,
-      maxOccupancy: 40,
-      percentageOfOccupancy: '60%'
-    },
-    {
-      id: 5,
-      location: 'HomeRoom',
-      zone: 'Zone 1 East',
-      currentOccupancy: 12,
-      maxOccupancy: 40,
-      percentageOfOccupancy: '30%'
-    }
-  ];
+  
 
   
  

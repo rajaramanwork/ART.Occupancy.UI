@@ -6,5 +6,3 @@ export interface Occupancy {
     maxOccupancy: number;
     percentageOfOccupancy: string;
 }
-  
-  
