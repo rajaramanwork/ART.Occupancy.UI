@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OccupancyCurveService } from './occupancy-curve.service';
 
 @Component({
   selector: 'occupancy-curve',
@@ -10,9 +11,20 @@ export class OccupancyCurveComponent implements OnInit {
   occupancyCurveOptions:any;
   chartOptions:any;
 
-  constructor() { }
+  constructor(
+    private occupancyCurveService: OccupancyCurveService
+  ) 
+  { 
+
+  }
 
   ngOnInit(): void {
+    var data = this.occupancyCurveService.getTasks();
+    this.occupancyCurveService.getTasks().subscribe((result) => {
+      console.log("-------fetching data----------")
+      console.log(result);
+    });
+
     this.occupancyCurveOptions = [
       {name: 'Today', value: 1},
       {name: 'Week', value: 2}

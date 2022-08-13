@@ -44,6 +44,7 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     OccupancyRatesComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
