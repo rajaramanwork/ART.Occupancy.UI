@@ -20,10 +20,15 @@ export class OccupancyCurveComponent implements OnInit {
 
   ngOnInit(): void {
     var data = this.occupancyCurveService.getTasks();
-    this.occupancyCurveService.getTasks().subscribe((result) => {
+    /*this.occupancyCurveService.getTasks().subscribe((result) => {
       console.log("-------fetching data----------")
+      console.log(result);*/
+
+    this.occupancyCurveService.getOccupancyCurves().subscribe((result) => {
+      console.log("-------fetching occupanycCurves----------")
       console.log(result);
-    });
+
+    })
 
     this.occupancyCurveOptions = [
       {name: 'Today', value: 1},
@@ -95,6 +100,5 @@ export class OccupancyCurveComponent implements OnInit {
         ]
       }]
     }
-    
   }
 }

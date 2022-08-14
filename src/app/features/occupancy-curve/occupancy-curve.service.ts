@@ -12,9 +12,17 @@ import {
 })
 
 export class OccupancyCurveService {
-  apiUrl: string = 'https://jsonplaceholder.typicode.com/todos/1';
+  //apiUrl: string = 'https://dummyjson.com/products/1';
+  apiUrl: string = 'http://localhost:64666/Occupancy';  
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   
+  /*
+  .set('Access-Control-Allow-Origin', 'http://172.31.91.8:64666')
+    .set('AAccess-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+    .set('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+    .set('ccess-Control-Allow-Credentials', 'true')
+  */ 
+
   constructor(private http: HttpClient) {
 
   }
@@ -23,6 +31,12 @@ export class OccupancyCurveService {
   getTasks() {
     console.log("invoking getTasks()");
     return this.http.get(this.apiUrl);
+  }
+
+  // Read
+  getOccupancyCurves(){
+    console.log("invoking getOccupancyCurves()");
+    return this.http.get(this.apiUrl + '/GetOccupancyCurve/08-13-2022');
   }
 
   // Create
