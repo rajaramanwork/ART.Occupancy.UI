@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OccupancyCurveService } from './occupancy-curve.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'occupancy-curve',
@@ -8,97 +9,93 @@ import { OccupancyCurveService } from './occupancy-curve.service';
 })
 export class OccupancyCurveComponent implements OnInit {
 
-  occupancyCurveOptions:any;
-  chartOptions:any;
-
   constructor(
-    private occupancyCurveService: OccupancyCurveService
-  ) 
-  { 
-
+    private occupancyCurveService: OccupancyCurveService,
+    private http : HttpClient
+  ) {
+    
   }
 
-  ngOnInit(): void {
-    var data = this.occupancyCurveService.getTasks();
-    /*this.occupancyCurveService.getTasks().subscribe((result) => {
-      console.log("-------fetching data----------")
-      console.log(result);*/
+  occupancyCurveOptions = [
+    {name: 'Today', value: 1},
+    {name: 'Week', value: 2}
+  ];
 
-    this.occupancyCurveService.getOccupancyCurves().subscribe((result) => {
-      console.log("-------fetching occupanycCurves----------")
-      console.log(result);
+  officeDataPoints:any[] = [];
+  restRoomsDataPoints:any[] = [];
 
-    })
-
-    this.occupancyCurveOptions = [
-      {name: 'Today', value: 1},
-      {name: 'Week', value: 2}
-    ];
-
-    this.chartOptions = {
-      animationEnabled: true,
-      theme: "light2",
-      axisX: {
-        intervalType: "hour",
-        interval: 1
-      },
-      axisY: {
-        title: "Count"
-      },
-      toolTip: {
-        shared: true
-      },
-      legend: {
-        cursor: "pointer",
-        itemclick: function(e: any){
-          if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-            e.dataSeries.visible = false;
-          } else{
-            e.dataSeries.visible = true;
-          }
-          e.chart.render();
-        }
-      },
-      data: [{
-        type:"line",
-        name: "Restrooms",
+  chart: any;
+ 
+  chartOptions = {
+    theme: "light2",
+    animationEnabled: true,
+    /*title: {
+      text: "Live Data"
+    },*/
+    axisX: {
+      intervalType: "hour",
+      interval: 1
+    },
+    axisY: {
+      title: "Count"
+    },
+    toolTip: {
+      shared: true
+    },
+    legend: {
+      cursor: "pointer",
+    },
+    data: [
+      {
+        type: "line",
+        name: "Office",
+        color: "orange",
         showInLegend: true,
-        dataPoints: [		
-          { x: 8, y: 27 },
-          { x: 9, y: 28 },
-          { x: 10, y: 35 },
-          { x: 11, y: 45 },
-          { x: 12, y: 54 },
-          { x: 13, y: 23 },
-          { x: 14, y: 45 },
-          { x: 15, y: 34 },
-          { x: 16, y: 23 },
-          { x: 17, y: 22 },
-          { x: 18, y: 14 },
-          { x: 19, y: 12 },
-          { x: 20, y: 8 }
-        ]
+        dataPoints: this.officeDataPoints
       },
       {
         type: "line",
-        name: "Admin Office",
+        name: "RestRooms",
         showInLegend: true,
-        dataPoints: [
-          { x: 8, y: 27 },
-          { x: 9, y: 28 },
-          { x: 10, y: 43 },
-          { x: 11, y: 45 },
-          { x: 12, y: 23 },
-          { x: 13, y: 64 },
-          { x: 14, y: 23 },
-          { x: 15, y: 45 },
-          { x: 16, y: 21 },
-          { x: 17, y: 5 },
-          { x: 18, y: 2 },
-          { x: 19, y: 5 },
-          { x: 20, y: 6 }
-        ]
-      }]
-    }
+        dataPoints: this.restRoomsDataPoints
+      }
+    ]
+  }
+
+  ngOnInit(): void {
+  }
+ 
+  getChartInstance(chart: object) {
+    this.chart = chart;
+    this.updateData();
+  }
+ 
+  ngOnDestroy() {
+  }
+ 
+  updateData = () => {
+    this.occupancyCurveService.getOccupancyCurves().subscribe(this.addData)
+  }
+ 
+  addData = (data:any) => {
+    console.log("--fetched data-----");
+    data.forEach( (val:any) => {
+      //console.log("----------name---------");
+      //console.log(val.name);
+      //console.log("----------datapoints---------");
+      if (val.name == 'Offices')
+      {
+        val.dataPoints.forEach( (dataPoint:any)=> {
+          this.officeDataPoints.push({x: dataPoint.x, y: dataPoint.y});
+        })
+      }
+      if (val.name == 'restrooms')
+      {
+        val.dataPoints.forEach( (dataPoint:any)=> {
+          this.restRoomsDataPoints.push({x: dataPoint.x, y: dataPoint.y});
+        })
+      }
+    })
+    this.chart.render();
   }
 }

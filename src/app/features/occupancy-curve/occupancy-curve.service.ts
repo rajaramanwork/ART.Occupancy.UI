@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError} from 'rxjs';
+import { map } from "rxjs/operators";
 import { catchError } from 'rxjs/operators';
 import {
   HttpClient,
@@ -23,22 +24,31 @@ export class OccupancyCurveService {
     .set('ccess-Control-Allow-Credentials', 'true')
   */ 
 
-  constructor(private http: HttpClient) {
+  constructor(private httpClient: HttpClient) {
 
   }
 
   // Read
   getTasks() {
     console.log("invoking getTasks()");
-    return this.http.get(this.apiUrl);
+    return this.httpClient.get(this.apiUrl);
   }
 
   // Read
-  getOccupancyCurves(){
+  /*getOccupancyCurves(){
     console.log("invoking getOccupancyCurves()");
     return this.http.get(this.apiUrl + '/GetOccupancyCurve/08-13-2022');
+  }*/
+
+  getOccupancyCurves() : Observable<any>{
+    console.log("invoking getOccupancyCurves()");
+    return this.httpClient.get(this.apiUrl + '/GetOccupancyCurve/08-13-2022')
+    .pipe(map((resp: any) => resp),
+      catchError(error => this.error(error))
+    )
   }
 
+  /*
   // Create
   createTask(data: any): Observable<any> {
     let API_URL = `${this.apiUrl}/create-task`;
@@ -57,7 +67,7 @@ export class OccupancyCurveService {
   deleteTask(id: any): Observable<any> {
     var API_URL = `${this.apiUrl}/delete-task/${id}`;
     return this.http.delete(API_URL).pipe(catchError(this.error));
-  }
+  }*/
   
   // Handle Errors
   error(error: HttpErrorResponse) {

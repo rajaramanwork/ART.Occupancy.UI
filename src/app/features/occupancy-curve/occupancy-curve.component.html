@@ -6,7 +6,7 @@
             <p-selectButton [options]="occupancyCurveOptions" optionLabel="name" optionValue="value"></p-selectButton>
         </div>
         <div class="col-12">
-            <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>
+            <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}" (chartInstance)="getChartInstance($event)"></canvasjs-chart>
         </div>
     </div>
 </p-card>
