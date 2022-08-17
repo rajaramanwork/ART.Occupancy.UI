@@ -28,6 +28,12 @@ import {DropdownModule} from 'primeng/dropdown';
 import * as CanvasJSAngularChart from '../assets/canvasjs/canvasjs.angular.component';
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
+//SyncFusion 
+import { registerLicense } from '@syncfusion/ej2-base';
+import { CircularGaugeModule } from '@syncfusion/ej2-angular-circulargauge';
+import { GaugeTooltipService } from '@syncfusion/ej2-angular-circulargauge';
+registerLicense('ORg4AjUWIQA/Gnt2VVhiQlFaclxJVHxIeEx0RWFbb196d1NMY1VBNQtUQF1hS35bd0JjWHpXcnNdT2Za');
+
 /* Custom App Components */
 import { OccupancyCurveComponent } from './features/occupancy-curve/occupancy-curve.component';
 import { RoomUtilisationComponent } from './features/room-utilisation/room-utilisation.component';
@@ -61,9 +67,10 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     AvatarModule,
     AccordionModule,
     SelectButtonModule,
-    DropdownModule
+    DropdownModule,
+    CircularGaugeModule 
   ],
-  providers: [],
+  providers: [GaugeTooltipService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
