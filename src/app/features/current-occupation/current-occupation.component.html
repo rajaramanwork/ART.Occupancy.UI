@@ -1,21 +1,21 @@
 <p-card  header="Current Occupancy" [style]="{ 'margin-bottom': '0em'}"> 
-    <p-table [value]="occupancies">
+    <p-table [value]="currentOccupancies">
       <ng-template pTemplate="header">
           <tr>
-              <th pSortableColumn="location">Type <p-sortIcon field="location"></p-sortIcon></th>
+              <th pSortableColumn="locationType">Type <p-sortIcon field="locationType"></p-sortIcon></th>
               <th pSortableColumn="zone">Name <p-sortIcon field="zone"></p-sortIcon></th>
-              <th pSortableColumn="currentOccupancy">Current <p-sortIcon field="currentOccupancy"></p-sortIcon></th>
-              <th pSortableColumn="maxOccupancy">Capacity <p-sortIcon field="maxOccupancy"></p-sortIcon></th>
-              <th pSortableColumn="percentageOfOccupancy">% Occupancy <p-sortIcon field="percentageOfOccupancy"></p-sortIcon></th>
+              <th pSortableColumn="currentCapacity">Current <p-sortIcon field="currentCapacity"></p-sortIcon></th>
+              <th pSortableColumn="maxCapacity">Capacity <p-sortIcon field="maxCapacity"></p-sortIcon></th>
+              <th pSortableColumn="occupancyPercent">% Occupancy <p-sortIcon field="occupancyPercent"></p-sortIcon></th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-occupancy>
           <tr>
-              <td>{{occupancy.location}}</td>
+              <td>{{occupancy.locationType}}</td>
               <td>{{occupancy.zone}}</td>
-              <td>{{occupancy.currentOccupancy}}</td>
-              <td>{{occupancy.maxOccupancy}}</td>
-              <td>{{occupancy.percentageOfOccupancy}}</td>
+              <td>{{occupancy.currentCapacity}}</td>
+              <td>{{occupancy.maxCapacity}}</td>
+              <td>{{occupancy.occupancyPercent}}</td>
           </tr>
       </ng-template>
     </p-table>

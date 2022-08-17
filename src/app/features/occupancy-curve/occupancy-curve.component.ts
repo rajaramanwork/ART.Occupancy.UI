@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OccupancyCurveService } from './occupancy-curve.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'occupancy-curve',
@@ -10,8 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class OccupancyCurveComponent implements OnInit {
 
   constructor(
-    private occupancyCurveService: OccupancyCurveService,
-    private http : HttpClient
+    private occupancyCurveService: OccupancyCurveService
   ) {
     
   }
