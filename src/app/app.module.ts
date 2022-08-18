@@ -31,7 +31,7 @@ var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 //SyncFusion 
 import { registerLicense } from '@syncfusion/ej2-base';
 import { CircularGaugeModule } from '@syncfusion/ej2-angular-circulargauge';
-import { GaugeTooltipService } from '@syncfusion/ej2-angular-circulargauge';
+import { GaugeTooltipService, LegendService } from '@syncfusion/ej2-angular-circulargauge';
 registerLicense('ORg4AjUWIQA/Gnt2VVhiQlFaclxJVHxIeEx0RWFbb196d1NMY1VBNQtUQF1hS35bd0JjWHpXcnNdT2Za');
 
 /* Custom App Components */
@@ -70,7 +70,7 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     DropdownModule,
     CircularGaugeModule 
   ],
-  providers: [GaugeTooltipService],
+  providers: [GaugeTooltipService, LegendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

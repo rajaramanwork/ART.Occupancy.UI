@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Font } from '@syncfusion/ej2-angular-charts';
 
 @Component({
   selector: 'occupancy-rates',
@@ -7,62 +8,101 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OccupancyRatesComponent implements OnInit {
   
+  public legendSettings: Object = {
+    visible: true,
+    toggleVisibility: true,
+    position: 'Right'
+  };;
 
-  constructor() { }
-
-  // Preparing the chart data
-  chartData = [
-    {
-      label: "Venezuela",
-      value: "290"
-    },
-    {
-      label: "Saudi",
-      value: "260"
-    },
-    {
-      label: "Canada",
-      value: "180"
-    },
-    {
-      label: "Iran",
-      value: "140"
-    },
-    {
-      label: "Russia",
-      value: "115"
-    },
-    {
-      label: "UAE",
-      value: "100"
-    },
-    {
-      label: "US",
-      value: "30"
-    },
-    {
-      label: "China",
-      value: "30"
-    }
-  ];
-
-  // Chart Configuration
-  dataSource = {
-    chart: {
-      caption: "Countries With Most Oil Reserves [2017-18]", //Set the chart caption
-      subCaption: "In MMbbl = One Million barrels", //Set the chart subcaption
-      xAxisName: "Country", //Set the x-axis name
-      yAxisName: "Reserves (MMbbl)", //Set the y-axis name
-      numberSuffix: "K",
-      theme: "fusion" //Set the theme for your chart
-    },
-    // Chart Data - from step 2
-    data: this.chartData
+  public tooltip: Object =  {
+    type:['Pointer', 'Range' ],
+    enable: true,
+    enableAnimation: false,
+    rangeSettings: { fill:'red' }
+  };
+  
+  public margin: Object = {
+    left: 0, right: 0, top: 0, bottom: 0
   };
 
-  
+  public axisIndex: number = 0;
+  public lineStyle1: Object = {
+      width: 1.5
+  };
+
+  // custom code end
+  //Initializing MajorTicks
+  public majorTicks1: Object = {
+      position: 'Inside',
+      width: 2,
+      height: 10,
+      color: '#843c54'
+  };
+  public title: string = 'Occupancy Rates';
+  //Initializing TitleStyle
+  public titleStyle: Object = {
+      color: 'gray',
+      size: '16px',
+      font: { fontweight:'bold' }
+  };
+  public minorTicks1: Object = {
+      position: 'Inside',
+      width: 2,
+      height: 5,
+      color: '#843c54'
+  };
+  public markerHeight: number = 15;
+  public markerWidth: number = 15;
+  public labelStyle1: Object = {
+      position: 'Inside',
+      autoAngle: true,
+      hiddenLabel: 'None'
+  };
+  public cap: Object = { color: 'white', radius: 0, border: { width: 0 } };
+
+  public lineStyle2: Object = { width: 1.5, color: '#E84011' };
+
+  public labelStyle2: Object = {
+      position: 'Outside',
+      autoAngle: true,
+      hiddenLabel: 'None',
+      font: { color: '#E84011' }
+  };
+  public majorTicks2: Object = {
+      position: 'Outside',
+      width: 2,
+      height: 10,
+      color: '#E84011'
+  };
+  public minorTicks2: Object = {
+      position: 'Outside',
+      width: 2,
+      height: 5,
+      color: '#E84011'
+  };
+
+  public lineStyle3: Object = { width: 1.5, color: '#66cdaa' };
+
+  public labelStyle3: Object = {
+      position: 'Outside',
+      autoAngle: true,
+      hiddenLabel: 'None',
+      font: { color: '#E84011' }
+  };
+  public majorTicks3: Object = {
+      position: 'Outside',
+      width: 2,
+      height: 10,
+      color: '#66cdaa'
+  };
+  public minorTicks3: Object = {
+      position: 'Outside',
+      width: 2,
+      height: 5,
+      color: '#66cdaa'
+  };
+ 
   ngOnInit(): void {
 
-    
   }
 }
