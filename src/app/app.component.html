@@ -1,35 +1,47 @@
-<div class="grid">
-  <div class="col-12">
-    <p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>
+<ejs-sidebar #dockBar id="dockSidebar" [enableDock]='enableDock' [width]='width' [dockSize]='dockSize'>
+  <div class="dock">
+      <ul>
+          <li class="sidebar-item" id="toggle" (click)="toggleClick()">
+              <span class="e-icons expand"></span>
+              <span class="e-text" title="menu">Menu</span>
+          </li>
+          <li class="sidebar-item">
+              <span class="e-icons home"></span>
+              <span class="e-text" title="home">Home</span>
+          </li>
+          <li class="sidebar-item">
+              <span class="e-icons profile"></span>
+              <span class="e-text" title="profile">Profile</span>
+          </li>
+          <li class="sidebar-item">
+              <span class="e-icons info"></span>
+              <span class="e-text" title="info">Info</span>
+          </li>
+          <li class="sidebar-item">
+              <span class="e-icons settings"></span>
+              <span class="e-text" title="settings">Settings</span>
+          </li>
+      </ul>
   </div>
-
-  <div class="col-8"> 
-    <occupancy-curve></occupancy-curve>
-  </div>
-  <div class="col-4">
-    <occupancy-rates></occupancy-rates>
-  </div>
-
-  <div class="col-8">
-    <current-occupation></current-occupation>
-  </div>
-  <div class="col-4">
-
+</ejs-sidebar>
+<div id="main-content container-fluid col-md-12 ">
     <div class="grid">
-        <room-utilisation></room-utilisation>
-    </div>
-  </div>
+        <div class="col-8"> 
+          <occupancy-curve></occupancy-curve>
+        </div>
+        <div class="col-4">
+          <occupancy-rates></occupancy-rates>
+        </div>
+      
+        <div class="col-8">
+          <current-occupation></current-occupation>
+        </div>
+        <div class="col-4">
+      
+          <div class="grid">
+              <room-utilisation></room-utilisation>
+          </div>
+        </div>
+      </div>      
 </div>
-
-<!--Sidebar-->
-<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000" style="background-color:'red'">
-  <div class="flex flex-row flex-wrap card-container blue-container">
-    <div class="flex align-items-center justify-content-center w-4rem h-4rem font-bold border-round m-4">
-      <p-image src="assets/Wilson.png" alt="Image"></p-image>
-    </div>
-    <div class="flex align-items-center justify-content-center w-4rem h-4rem font-bold border-round m-4">
-      <span style="text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;color:rgb(255, 255, 255)">Woodrow Wilson Middle School</span>
-    </div>
-  </div>
-  <p-panelMenu [model]="menuItems" [style]="{'width':'300px'}"></p-panelMenu>  
-<p-sidebar>
+<!--end of main content declaration -->

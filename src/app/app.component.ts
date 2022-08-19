@@ -1,6 +1,5 @@
-import { Component, ViewEncapsulation  } from '@angular/core';
-import { PrimeNGConfig, PrimeIcons } from 'primeng/api';
-import {MenuItem} from 'primeng/api';
+import { Component, ViewEncapsulation,ViewChild  } from '@angular/core';
+import { SidebarComponent } from '@syncfusion/ej2-angular-navigations';
 
 @Component({
   selector: 'app-root',
@@ -9,54 +8,18 @@ import {MenuItem} from 'primeng/api';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent { 
-  menuItems: MenuItem[] = [
-  {
-      label: 'Reports',
-      icon: 'pi pi-fw pi-pencil',
-      items: [
-          {label: 'Occupancy Yearly', icon: 'pi pi-fw pi-trash'},
-          {label: 'Occupancy Monthly', icon: 'pi pi-fw pi-refresh'},
-          {label: 'Occupancy Daily', icon: 'pi pi-fw pi-refresh'}
-      ]
-  },
-  {
-      label: 'Help',
-      icon: 'pi pi-fw pi-question',
-      items: [
-          {
-              label: 'Documents',
-              icon: 'pi pi-pi pi-book'
-          },
-          {
-            label: 'Contact',
-            icon: 'pi pi-pi pi-phone'
-          }
-      ]
-  },
-  {
-    label: 'Account',
-    icon: 'pi pi-fw pi-user-edit',
-    items: [
-        {label: 'Logout', icon: 'pi pi-fw pi-trash'},
-        {label: 'Profile', icon: 'pi pi-fw pi-user'},
-        {label: 'Settings', icon: 'pi pi-fw pi-cog'}
-    ]
-  }];
+  @ViewChild('dockBar') dockBar: SidebarComponent;
+  public enableDock: boolean = true;
+  public width: string = '220px';
+  public dockSize: string = '72px';
+  toggleClick() {
+      this.dockBar.toggle();
+  }
   
-  visibleSidebar1 : any;
-  violationsPerYear: number = 25;
-  violationsPerMonth: number = 50;
-  violationsPerDay: number = 15;
-  
-
-  
- 
-
-  constructor(private primengConfig: PrimeNGConfig) {
+  constructor() {
       
   }
 
   ngOnInit() {
-    this.primengConfig.ripple = true;
   }
 }
