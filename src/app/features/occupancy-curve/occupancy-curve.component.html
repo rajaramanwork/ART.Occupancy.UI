@@ -1,4 +1,4 @@
-<p-card  header="Occupancy Curve" [style]="{ 'margin-bottom': '0em'}">
+<p-card [style]="{ 'margin-top': '0em', 'margin-bottom': '0em'}">
     <div class="grid">
         <div class="col-10">
         </div>
@@ -6,7 +6,13 @@
             <p-selectButton [options]="occupancyCurveOptions" optionLabel="name" optionValue="value"></p-selectButton>
         </div>
         <div class="col-12">
-            <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}" (chartInstance)="getChartInstance($event)"></canvasjs-chart>
+            <ejs-chart style='display:block' align='center' id='chartcontainer' [title]='title' [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'
+                [tooltip]='tooltip' [chartArea]='chartArea' [width]='width'>
+            <e-series-collection>
+                <e-series [dataSource]='officeDataPoints' type='Line' xName='x' yName='y' name='Offices' width=2 [marker]='marker'> </e-series>
+                <e-series [dataSource]='restRoomsDataPoints' type='Line' xName='x' yName='y' name='Restrooms' width=2 [marker]='marker'> </e-series>
+            </e-series-collection>
+        </ejs-chart>
         </div>
     </div>
 </p-card>
