@@ -1,7 +1,6 @@
-
-/*------- Start : Sidebar Integration------------*/
-    
-title {
+/* Content area styles */
+ 
+.title {
   text-align: center;
   font-size: 20px;
   padding: 15px;
@@ -125,6 +124,16 @@ span.e-icons {
  font-weight: normal;
  font-style: normal;
 }
-/*--------End : Sidebar Integration-------------- */
 
+#element {
+  display: block;
+  width: 300px;
+  margin: 130px auto;
+  border-radius: 3px;
+  justify-content: center;
+}
 
+.e-avatar {
+  background-image: url(../assets/rajaraman.jpg);
+  margin: 2px;
+}

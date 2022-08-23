@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { CurrentOccupancy } from './CurrentOccupancy';
 import { CurrentOccupancyService } from './current-occupancy.service';
 
 @Component({
   selector: 'current-occupation',
   templateUrl: 'current-occupation.component.html',
-  styleUrls: ['current-occupation.component.css']
+  styleUrls: ['current-occupation.component.css'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class CurrentOccupationComponent implements OnInit {
   

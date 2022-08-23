@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation,ViewChild  } from '@angular/core';
-import { SidebarComponent } from '@syncfusion/ej2-angular-navigations';
+import { SidebarComponent, ClickEventArgs } from '@syncfusion/ej2-angular-navigations';
 
 @Component({
   selector: 'app-root',

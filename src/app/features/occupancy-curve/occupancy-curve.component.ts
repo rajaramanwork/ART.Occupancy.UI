@@ -6,7 +6,7 @@ import { ILoadedEventArgs, ChartTheme } from '@syncfusion/ej2-angular-charts';
   selector: 'occupancy-curve',
   templateUrl: 'occupancy-curve.component.html',
   styleUrls: ['occupancy-curve.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class OccupancyCurveComponent implements OnInit {
   /*public data: Object[] = [
