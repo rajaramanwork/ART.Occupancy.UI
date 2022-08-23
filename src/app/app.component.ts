@@ -18,26 +18,6 @@ export class AppComponent {
   toggleClick() {
       this.dockBar.toggle();
   }
-
-  public dashboardObject: DashboardLayoutComponent;
-  public count: number = 5;
-  public panelsData: PanelModel[] = [{
-      'sizeX': 2, 'sizeY': 2, 'row': 0, 'col': 0, header: '<div>Panel 1</div>'
-  },
-  {
-      'sizeX': 2, 'sizeY': 2, 'row': 0, 'col': 2, header: '<div>Panel 2</div>'
-  },
-  {
-      'sizeX': 2, 'sizeY': 2, 'row': 0, 'col': 4, header: '<div>Panel 3</div>'
-  },
-  {
-      'sizeX': 4, 'sizeY': 2, 'row': 2, 'col': 0, header: '<div>Panel 4</div>'
-  },
-  {
-      'sizeX': 2, 'sizeY': 2, 'row': 2, 'col': 4, header: '<div>Panel 5</div>'
-  }];
-  public headerCount: number = 1;
-  
   constructor() {
       
   }
