@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Font } from '@syncfusion/ej2-angular-charts';
 
 @Component({
   selector: 'occupancy-rates',
   templateUrl: 'occupancy-rates.component.html',
-  styleUrls: ['occupancy-rates.component.css']
+  styleUrls: ['occupancy-rates.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class OccupancyRatesComponent implements OnInit {
   
