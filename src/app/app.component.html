@@ -24,10 +24,9 @@
         </ul>
     </div>
 </ejs-sidebar>
-<div id="main-content container-fluid col-md-12 ">
-    <div class="title">Main content</div>
-    <div class="sub-title"> Click the expand icon to open and collapse icons to close the Sidebar.</div>
+<div class="control-section">
+    <ejs-dashboardlayout id="occupancyDashboard" #api_dashboard columns="6" [allowResizing]="true" [panels]='panelsData' [cellSpacing]='cellSpacing'>
+</ejs-dashboardlayout>
 </div>
-<div>
-</div>
+
 <!--end of main content declaration -->
