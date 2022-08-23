@@ -26,14 +26,9 @@
 </ejs-sidebar>
 <div class="control-section">
     <ejs-dashboardlayout id='default_dashboard' columns="5" #default_dashboard [cellSpacing]='cellSpacing'  [allowResizing]='true'>
-        <div id="one" class="e-panel" data-sizeX="3" data-sizeY="1" data-row="0" data-col="0">
+        <div id="one" class="e-panel" data-sizeX="5" data-sizeY="1" data-row="0" data-col="0">
             <div class="e-panel-container">
-                <div class="text-align">0</div>
-            </div>
-        </div>
-        <div id="two" class="e-panel" data-sizeX="2" data-sizeY="1" data-row="0" data-col="3" >
-            <div class="e-panel-container">
-                <div class="text-align">1</div>
+                <occupancy-curve></occupancy-curve>
             </div>
         </div>
         <div id="three" class="e-panel" data-sizeX="3" data-sizeY="1" data-row="1" data-col="0" >
