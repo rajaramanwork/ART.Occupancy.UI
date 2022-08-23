@@ -32,3 +32,14 @@ Integrating Http Services : https://www.positronx.io/angular-service-tutorial-wi
 
 Sample Services 
 https://dummyjson.com/
+
+Installs 
+========================================================
+npm install @syncfusion/ej2 --save
+npm install @syncfusion/ej2-angular-navigations --save
+
+npm install @syncfusion/ej2-angular-buttons --save
+npm install @syncfusion/ej2-angular-lists --save
+npm install @syncfusion/ej2-angular-inputs --save
+npm install @syncfusion/ej2-angular-dropdowns --save
+npm install @syncfusion/ej2-angular-layouts --save
