@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 /* PrimeNG Imports*/
+import {TableModule} from 'primeng/table';
 
 /* SyncFusion */
 import { registerLicense } from '@syncfusion/ej2-base';
@@ -42,6 +43,7 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    //Syncfusion
     CircularGaugeModule,
     ChartAllModule,
     AccumulationChartAllModule,
@@ -49,7 +51,9 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     SidebarModule,
     ListViewAllModule,
     ToolbarModule,
-    DashboardLayoutModule 
+    DashboardLayoutModule,
+    //PrimeNG
+    TableModule
   ],
   providers: [GaugeTooltipService, LegendService],
   bootstrap: [AppComponent]

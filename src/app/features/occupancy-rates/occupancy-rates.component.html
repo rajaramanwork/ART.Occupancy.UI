@@ -1,29 +1,12 @@
-<ejs-circulargauge #axes='' id="axis-container" #multipleAxes  [title]='title'[titleStyle]='titleStyle' [margin]='margin' [legendSettings]='legendSettings' 
-[tooltip]="tooltip" style='width:100%;height:200px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;'>
+<ejs-circulargauge id="circular-container" [legendSettings]='legendSettings'  width='500' height='400'>
     <e-axes>
-        <e-axis radius='95%' [lineStyle]='lineStyle1' [labelStyle]='labelStyle1' [majorTicks]='majorTicks1' [minorTicks]='minorTicks1'
-            minimum=0 maximum=100 startAngle=220 endAngle=140>
-            <e-pointers>
-                <e-pointer value=40 radius='100%' pointerWidth="20"  [markerHeight]='markerHeight' [markerWidth]='markerWidth'
-                    type='Marker' markerShape='Triangle'>
-                </e-pointer>
-            </e-pointers>
-        </e-axis>
-        <e-axis radius='95%' [lineStyle]='lineStyle2' [labelStyle]='labelStyle2' [majorTicks]='majorTicks2' [minorTicks]='minorTicks2'
-            minimum=0 maximum=240 startAngle=220 endAngle=140>
-            <e-pointers>
-                <e-pointer value=120 radius='100%' pointerWidth="20" color="#C62E0A" [markerHeight]='markerHeight' [markerWidth]='markerWidth'
-                    type='Marker' markerShape='InvertedTriangle'>
-                </e-pointer>
-            </e-pointers>
-        </e-axis>
-        <e-axis radius='95%' [lineStyle]='lineStyle3' [labelStyle]='labelStyle3' [majorTicks]='majorTicks3' [minorTicks]='minorTicks3'
-            minimum=0 maximum=240 startAngle=220 endAngle=140>
-            <e-pointers>
-                <e-pointer value=45 radius='100%' pointerWidth="20" color="#6e57d2" [markerHeight]='markerHeight' [markerWidth]='markerWidth'
-                    type='Marker' markerShape='InvertedTriangle'>
-                </e-pointer>
-            </e-pointers>
+        <e-axis minimum=0 maximum=100 [majorTicks]="majorTicks" [minorTicks]="minorTicks" [lineStyle]="lineStyle">
+            <e-ranges>
+                    <e-range start=0 end=25 radius='108%'></e-range>
+                    <e-range start=25 end=50 radius='108%'></e-range>
+                    <e-range start=50 end=75 radius='108%'></e-range>
+                    <e-range start=75 end=100 radius='108%'></e-range>
+            </e-ranges>
         </e-axis>
     </e-axes>
 </ejs-circulargauge>

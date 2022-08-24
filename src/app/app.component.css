@@ -148,7 +148,7 @@ span.e-icons {
 }
 
 #default_dashboard .e-panel .e-panel-container .text-align {
-  vertical-align: middle;
+  vertical-align: top;
   font-weight: 600;
   font-size: 20px;
   text-align: center;

@@ -9,7 +9,7 @@ import { Font } from '@syncfusion/ej2-angular-charts';
 })
 export class OccupancyRatesComponent implements OnInit {
   
-  public legendSettings: Object = {
+  /*public legendSettings: Object = {
     visible: true,
     toggleVisibility: true,
     position: 'Right'
@@ -101,9 +101,25 @@ export class OccupancyRatesComponent implements OnInit {
       width: 2,
       height: 5,
       color: '#66cdaa'
-  };
- 
+  };*/
+  public lineStyle: Object;
+  public majorTicks: Object;
+  public minorTicks: Object;
+  public legendSettings: object;
   ngOnInit(): void {
-
+   // Initialize objects.
+   this.lineStyle = {
+    useRangeColor: true
+    };
+    this.majorTicks = {
+        useRangeColor: true
+    };
+    this.minorTicks = {
+        useRangeColor: true
+    };
+    this.legendSettings= {
+        visible: true,
+        toggleVisibility: true
+    };
   }
 }
