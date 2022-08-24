@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
 
 import { Space } from './space';
 import { Zone } from './zones';
@@ -6,7 +6,8 @@ import { Zone } from './zones';
 @Component({
   selector: 'room-utilisation',
   templateUrl: 'room-utilisation.component.html',
-  styleUrls: ['room-utilisation.component.css']
+  styleUrls: ['room-utilisation.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RoomUtilisationComponent implements OnInit {
   selectedZone : any;

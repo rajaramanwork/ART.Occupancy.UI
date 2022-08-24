@@ -11,13 +11,14 @@ import { AppComponent } from './app.component';
 
 /* PrimeNG Imports*/
 import {TableModule} from 'primeng/table';
+import {DropdownModule} from 'primeng/dropdown';
 
 /* SyncFusion */
 import { registerLicense } from '@syncfusion/ej2-base';
 import { CircularGaugeModule, GaugeTooltipService, LegendService } from '@syncfusion/ej2-angular-circulargauge';
 import { VirtualizationService,ListViewAllModule } from '@syncfusion/ej2-angular-lists';
 import { ToolbarModule, SidebarModule } from '@syncfusion/ej2-angular-navigations';
-import {  ChartAllModule, AccumulationChartAllModule, RangeNavigatorAllModule } from '@syncfusion/ej2-angular-charts';
+import { ChartAllModule, AccumulationChartAllModule, RangeNavigatorAllModule } from '@syncfusion/ej2-angular-charts';
 import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
 
 //registerLicense('ORg4AjUWIQA/Gnt2VVhiQlFaclxJVHxIeEx0RWFbb196d1NMY1VBNQtUQF1hS35bd0JjWHpXcnNdT2Za');
@@ -53,7 +54,8 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     ToolbarModule,
     DashboardLayoutModule,
     //PrimeNG
-    TableModule
+    TableModule,
+    DropdownModule
   ],
   providers: [GaugeTooltipService, LegendService],
   bootstrap: [AppComponent]
