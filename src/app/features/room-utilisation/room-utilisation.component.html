@@ -1,8 +1,4 @@
 <div class="grid">
-  <div class="col-8"><b>Room Utilization</b></div>
-  <div class="col-4">
-    <p-dropdown [options]="zones" [(ngModel)]="selectedZone" optionLabel="name"></p-dropdown>
-  </div>
   <div class="col-12">
     <p-table [value]="spaces" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]">
