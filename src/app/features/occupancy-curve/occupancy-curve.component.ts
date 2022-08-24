@@ -12,6 +12,10 @@ export class OccupancyCurveComponent implements OnInit {
   officeDataPoints:Object[] = [];
   restRoomsDataPoints:Object[] = [];
 
+  durationOptions: any[];
+  selectedDuration: string = "Today";
+
+
   //Initializing Primary X Axis
   public primaryXAxis: Object = {
       valueType: 'Category',
@@ -57,6 +61,7 @@ export class OccupancyCurveComponent implements OnInit {
 
   ngOnInit(): void {
     this.occupancyCurveService.getOccupancyCurves().subscribe(this.loadDataPoints);
+    this.durationOptions = [{label: 'Today', value: 'Today'}, {label: 'Week', value: 'Week'}];
   }
  
   ngOnDestroy() {

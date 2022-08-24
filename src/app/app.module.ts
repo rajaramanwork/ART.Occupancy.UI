@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 /* PrimeNG Imports*/
 import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
+import {SelectButtonModule} from 'primeng/selectbutton';
 
 /* SyncFusion */
 import { registerLicense } from '@syncfusion/ej2-base';
@@ -55,7 +56,8 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     DashboardLayoutModule,
     //PrimeNG
     TableModule,
-    DropdownModule
+    DropdownModule,
+    SelectButtonModule
   ],
   providers: [GaugeTooltipService, LegendService],
   bootstrap: [AppComponent]

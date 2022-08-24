@@ -1,3 +1,6 @@
+<div style="padding-left:5px;padding-right:5px;padding-top:5px;float:right;">
+    <p-selectButton [options]="durationOptions" [(ngModel)]="selectedDuration" optionLabel="label" optionValue="value"></p-selectButton>
+</div>
 <ejs-chart id='chartcontainer' [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'[tooltip]='tooltip' [chartArea]='chartArea'>
     <e-series-collection>
         <e-series [dataSource]='officeDataPoints' type='Line' xName='x' yName='y' name='Offices'> </e-series>
