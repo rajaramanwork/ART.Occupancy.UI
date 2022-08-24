@@ -9,13 +9,6 @@ import { ILoadedEventArgs, ChartTheme } from '@syncfusion/ej2-angular-charts';
   encapsulation: ViewEncapsulation.None
 })
 export class OccupancyCurveComponent implements OnInit {
-  /*public data: Object[] = [
-    {"x":8,"y":12},{"x":9,"y":16},{"x":10,"y":22},{"x":11,"y":23},{"x":12,"y":42},{"x":13,"y":15},{"x":14,"y":18},{"x":15,"y":19},{"x":16,"y":12},{"x":17,"y":32},{"x":18,"y":33}
-  ];
-  public data1: Object[] = [
-    {"x":8,"y":16},{"x":9,"y":20},{"x":10,"y":67},{"x":11,"y":46},{"x":12,"y":84},{"x":13,"y":46},{"x":14,"y":46},{"x":15,"y":45},{"x":16,"y":45},{"x":17,"y":37},{"x":18,"y":68}
-  ];*/
-
   officeDataPoints:Object[] = [];
   restRoomsDataPoints:Object[] = [];
 
@@ -29,7 +22,7 @@ export class OccupancyCurveComponent implements OnInit {
 
   //Initializing Primary Y Axis
   public primaryYAxis: Object = {
-      labelFormat: '${value}',
+      labelFormat: '{value}',
       rangePadding: 'None',
       minimum: 0,
       maximum: 150,
@@ -43,19 +36,13 @@ export class OccupancyCurveComponent implements OnInit {
           width: 0
       }
   };
-  public width: string = '100%';
-  public marker: Object = {
-      visible: true,
-      height: 10,
-      width: 10
-  };
+
   public tooltip: Object = {
       enable: true
   };
   // custom code start
 
   // custom code end
-  public title: string = 'Occupancy Curve';
   
   constructor(
     private occupancyCurveService: OccupancyCurveService

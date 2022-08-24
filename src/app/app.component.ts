@@ -12,8 +12,8 @@ import { DashboardLayoutComponent, PanelModel } from '@syncfusion/ej2-angular-la
 export class AppComponent { 
   @ViewChild('dockBar') dockBar: SidebarComponent;
   public enableDock: boolean = true;
-  public width: string = '220px';
-  public dockSize: string = '72px';
+  public width: string = '205px';
+  public dockSize: string = '70px';
   public cellSpacing: number[] = [10, 10];
   toggleClick() {
       this.dockBar.toggle();

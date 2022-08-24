@@ -25,27 +25,39 @@
     </div>
 </ejs-sidebar>
 <div class="control-section">
-    <ejs-dashboardlayout id='default_dashboard' columns="5" #default_dashboard [cellSpacing]='cellSpacing'  [allowResizing]='true'>
-        <div id="one" class="e-panel" data-sizeX="5" data-sizeY="1" data-row="0" data-col="0">
-            <div class="e-panel-container">
-                <occupancy-curve></occupancy-curve>
-            </div>
-        </div>
-        <div id="two" class="e-panel" data-sizeX="4" data-sizeY="1" data-row="1" data-col="0" >
-            <div class="e-panel-container">
-                <current-occupation></current-occupation>
-            </div>
-        </div>
-        <div id="three" class="e-panel" data-sizeX="1" data-sizeY="1" data-row="1" data-col="4" >
-            <div class="e-panel-container">
-                <occupancy-rates></occupancy-rates>
-            </div>
-        </div>
-        <div id="four" class="e-panel" data-sizeX="4" data-sizeY="1" data-row="2" data-col="0" >
-            <div class="e-panel-container">
-                <room-utilisation></room-utilisation>
-            </div>
-        </div>
+    <ejs-dashboardlayout columns="5" #default_dashboard [cellSpacing]='cellSpacing'  [allowResizing]='true'>
+        <e-panels>
+            <e-panel [sizeX]="5" [sizeY]="1.4" [row]="0" [col]="0">
+                <ng-template #header>
+                    <div>Occupancy Curves</div>
+                </ng-template>
+                <ng-template #content>
+                    <div id="column">
+                        <occupancy-curve></occupancy-curve>
+                    </div>
+                </ng-template>
+            </e-panel>
+            <e-panel [sizeX]="3.25" [sizeY]="1.4" [row]="1.4" [col]="0">
+                <ng-template #header>
+                    <div>Current Occupation</div>
+                </ng-template>
+                <ng-template #content>
+                    <div id="column">
+                        <current-occupation></current-occupation>
+                    </div>
+                </ng-template>
+            </e-panel>
+            <e-panel [sizeX]="1.75" [sizeY]="1.4" [row]="1.4" [col]="4">
+                <ng-template #header>
+                    <div>Occupancy Rates</div>
+                </ng-template>
+                <ng-template #content>
+                    <div id="column">
+                        <occupancy-rates></occupancy-rates>
+                    </div>
+                </ng-template>
+            </e-panel>
+        </e-panels>
     </ejs-dashboardlayout>
 </div>
 
