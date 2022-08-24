@@ -1,12 +1,15 @@
-<ejs-circulargauge id="circular-container" [legendSettings]='legendSettings'>
+<ejs-circulargauge id="circular-container" [legendSettings]='legendSettings' [tooltip]="tooltip">
     <e-axes>
-        <e-axis minimum=0 maximum=100 [majorTicks]="majorTicks" [minorTicks]="minorTicks" [lineStyle]="lineStyle">
+        <e-axis minimum=0 maximum=100 [majorTicks]="majorTicks" [minorTicks]="minorTicks" [lineStyle]="lineStyle" [annotations]='annotations'>
             <e-ranges>
-                    <e-range start=0 end=25 radius='108%'></e-range>
-                    <e-range start=25 end=50 radius='108%'></e-range>
-                    <e-range start=50 end=75 radius='108%'></e-range>
-                    <e-range start=75 end=100 radius='108%'></e-range>
+                    <e-range start=0 end=25 radius='108%' color="#ffff00" legendText='Very Low'></e-range>
+                    <e-range start=25 end=75 radius='108%'  color="#2e8b57" legendText='Right Sized'></e-range>
+                    <e-range start=75 end=90 radius='108%'  color="#90ee90" legendText='Nearly Full'></e-range>
+                    <e-range start=90 end=100 radius='108%'  color="#ff0000" legendText='Overcrowded'></e-range>
             </e-ranges>
+            <e-pointers>
+                <e-pointer value=90></e-pointer>
+            </e-pointers>
         </e-axis>
     </e-axes>
 </ejs-circulargauge>
