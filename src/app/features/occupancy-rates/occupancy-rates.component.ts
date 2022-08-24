@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Font } from '@syncfusion/ej2-angular-charts';
+import { Zone } from '../shared/zones';
 
 @Component({
   selector: 'occupancy-rates',
@@ -14,6 +15,11 @@ export class OccupancyRatesComponent implements OnInit {
   public legendSettings: object;
   public tooltip: Object;
   public annotations:any;
+
+  public zones: Zone[];
+
+  public selectedZone: Zone;
+
   ngOnInit(): void {
    // Initialize objects.
    this.lineStyle = {
@@ -40,5 +46,19 @@ export class OccupancyRatesComponent implements OnInit {
         content: 'CircularGauge',
         angle: 180, zIndex: '1',
     }];
+    this.zones = [
+      {
+        name: 'Conference Rooms',
+        code: 'Zone 1A'
+      },
+      {
+          name: 'Home Rooms',
+          code: 'Zone 2A'
+      },
+      {
+          name: 'Gym',
+          code: 'Zone 3A'
+      }
+    ];
   }
 }

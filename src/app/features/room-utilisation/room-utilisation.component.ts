@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation} from '@angular/core';
 
 import { Space } from './space';
-import { Zone } from './zones';
+import { Zone } from '../shared/zones';
 
 @Component({
   selector: 'room-utilisation',

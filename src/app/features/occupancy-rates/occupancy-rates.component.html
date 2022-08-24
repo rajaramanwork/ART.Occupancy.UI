@@ -1,3 +1,6 @@
+<div style="padding-left:5px;padding-right:5px;padding-top: 5px;">
+    <p-dropdown [options]="zones" [(ngModel)]="selectedZone" optionLabel="name" optionValue="code"></p-dropdown>
+</div>
 <ejs-circulargauge id="circular-container" [legendSettings]='legendSettings' [tooltip]="tooltip" width="80%" height="80%">
     <e-axes>
         <e-axis minimum=0 maximum=100 [majorTicks]="majorTicks" [minorTicks]="minorTicks" [lineStyle]="lineStyle" [annotations]='annotations'>
