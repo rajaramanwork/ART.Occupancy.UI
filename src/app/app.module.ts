@@ -27,7 +27,7 @@ registerLicense('Mgo+DSMBaFt/QHJqVVhjWlpFdEBBXHxAd1p/VWJYdVt5flBPcDwsT3RfQF9jQX9
 
 /* Custom App Components */
 import { OccupancyCurveComponent } from './features/occupancy-curve/occupancy-curve.component';
-import { RoomUtilisationComponent } from './features/room-utilisation/room-utilisation.component';
+import { OccupancyUtilisationComponent } from './features/occupancy-utilisation/occupancy-utilisation.component';
 import { CurrentOccupationComponent } from './features/current-occupation/current-occupation.component';
 import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-rates.component';
 
@@ -35,7 +35,7 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
   declarations: [
     AppComponent,
     OccupancyCurveComponent,
-    RoomUtilisationComponent,
+    OccupancyUtilisationComponent,
     CurrentOccupationComponent,
     OccupancyRatesComponent
   ],

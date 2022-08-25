@@ -1,0 +1,40 @@
+<!--<div class="grid">
+  <div class="col-12">
+    <p-table [value]="spaces" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]">
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="name">Space <p-sortIcon field="location"></p-sortIcon></th>
+              <th pSortableColumn="timeOccupied">% Time Occupied <p-sortIcon field="timeOccupied"></p-sortIcon></th>
+              <th pSortableColumn="ageTimeOccupied">Avg. Time Occupied <p-sortIcon field="ageTimeOccupied"></p-sortIcon></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-space>
+          <tr>
+              <td><b>{{space.name}}</b></td>
+              <td>{{space.timeOccupied}}</td>
+              <td>{{space.ageTimeOccupied}}</td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>-->
+<div style="padding-left:5px;padding-right:5px;padding-top:5px;float:right;">
+  <p-dropdown [options]="zones" [(ngModel)]="selectedZone" optionLabel="name" optionValue="code" (onChange)="onZoneChange($event)"></p-dropdown>
+</div>
+<ejs-circulargauge id="circular-container" [legendSettings]='legendSettings' [tooltip]="tooltip" width="80%" height="80%">
+  <e-axes>
+      <e-axis minimum=0 maximum=100 [majorTicks]="majorTicks" [minorTicks]="minorTicks" [lineStyle]="lineStyle" [annotations]='annotations'>
+          <e-ranges>
+                  <e-range start=0 end=25 radius='108%' color="#ffff00" legendText='Very Low'></e-range>
+                  <e-range start=25 end=75 radius='108%'  color="#2e8b57" legendText='Right Sized'></e-range>
+                  <e-range start=75 end=90 radius='108%'  color="#90ee90" legendText='Nearly Full'></e-range>
+                  <e-range start=90 end=100 radius='108%'  color="#ff0000" legendText='Overcrowded'></e-range>
+          </e-ranges>
+          <e-pointers>
+              <e-pointer value={{occupancyRate}}></e-pointer>
+          </e-pointers>
+      </e-axis>
+  </e-axes>
+</ejs-circulargauge>
+  
