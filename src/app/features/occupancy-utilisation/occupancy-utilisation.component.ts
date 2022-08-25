@@ -117,8 +117,8 @@ export class OccupancyUtilisationComponent implements OnInit {
           code: 'conf room'
         },
         {
-            name: 'Home Room 1A',
-            code: 'home room 1A'
+            name: 'Class Room 101',
+            code: 'Class Room 101'
         },
         {
             name: 'Admin Office',

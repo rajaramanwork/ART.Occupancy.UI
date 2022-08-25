@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import {DatePipe} from '@angular/common';   
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,7 +60,7 @@ import { OccupancyRatesComponent } from './features/occupancy-rates/occupancy-ra
     DropdownModule,
     SelectButtonModule
   ],
-  providers: [GaugeTooltipService, LegendService],
+  providers: [DatePipe, GaugeTooltipService, LegendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

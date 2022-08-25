@@ -1,10 +1,19 @@
-.overOccupied {
+.overCrowded {
     font-weight: 700;
-    color: #FF5252;
-    text-decoration: line-through;
+    color: #ff0000;
 }
 
-.inRange {
+.nearlyFull {
     font-weight: 700;
-    color: #66BB6A;
+    color: #FF7F50;
+}
+
+.rightSized {
+    font-weight: 700;
+    color: #2e8b57;
+}
+
+.veryLow {
+    font-weight: 700;
+    color: #2e8b57;
 }

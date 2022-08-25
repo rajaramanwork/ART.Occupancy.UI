@@ -1,9 +1,9 @@
 <div style="padding-left:5px;padding-right:5px;padding-top:5px;float:right;">
     <p-selectButton [options]="durationOptions" [(ngModel)]="selectedDuration" optionLabel="label" optionValue="value"></p-selectButton>
 </div>
-<ejs-chart id='chartcontainer' [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis'[tooltip]='tooltip' [chartArea]='chartArea'>
+<ejs-chart id='chartcontainer' [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [palettes]='palette' [tooltip]='tooltip' [chartArea]='chartArea'>
     <e-series-collection>
-        <e-series [dataSource]='officeDataPoints' type='Line' xName='x' yName='y' name='Offices'> </e-series>
-        <e-series [dataSource]='restRoomsDataPoints' type='Line' xName='x' yName='y' name='Restrooms'> </e-series>
+        <e-series [dataSource]='officeDataPoints' type='Line' xName='x' yName='y' name='Offices' [marker]='officeMarker'> </e-series>
+        <e-series [dataSource]='restRoomsDataPoints' type='Line' xName='x' yName='y' name='Restrooms' [marker]='restRoomsMarker'> </e-series>
     </e-series-collection>
 </ejs-chart>

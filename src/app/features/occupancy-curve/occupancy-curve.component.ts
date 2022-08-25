@@ -13,13 +13,16 @@ export class OccupancyCurveComponent implements OnInit {
   restRoomsDataPoints:Object[] = [];
 
   durationOptions: any[];
-  selectedDuration: string = "Today";
-
+  selectedDuration: string = "T";
+  public officeMarker: Object;
+  public restRoomsMarker: Object;
+  public palette: string[];
 
   //Initializing Primary X Axis
   public primaryXAxis: Object = {
       valueType: 'Category',
       labelFormat: 'y',
+      title: 'Time Of Day',
       edgeLabelPlacement: 'Shift',
       majorGridLines: { width: 0 }
   };
@@ -27,6 +30,7 @@ export class OccupancyCurveComponent implements OnInit {
   //Initializing Primary Y Axis
   public primaryYAxis: Object = {
       labelFormat: '{value}',
+      title: '# Of Occupants',
       rangePadding: 'None',
       minimum: 0,
       maximum: 150,
@@ -54,14 +58,13 @@ export class OccupancyCurveComponent implements OnInit {
     
   }
 
-  occupancyCurveOptions = [
-    {name: 'Today', value: 1},
-    {name: 'Week', value: 2}
-  ];
 
   ngOnInit(): void {
     this.occupancyCurveService.getOccupancyCurves().subscribe(this.loadDataPoints);
-    this.durationOptions = [{label: 'Today', value: 'Today'}, {label: 'Week', value: 'Week'}];
+    this.durationOptions = [{label: 'Today', value: 'T'}, {label: 'Week', value: 'W'}, {label: 'Month', value: 'M'}];
+    this.officeMarker = { dataLabel: { visible: true }};
+    this.restRoomsMarker = { dataLabel: { visible: true }};
+    this.palette = ["#DC143C", "#32CD32", "#48D1CC", "#00BFFF"];
   }
  
   ngOnDestroy() {

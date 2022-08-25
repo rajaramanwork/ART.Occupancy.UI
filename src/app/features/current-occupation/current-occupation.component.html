@@ -3,8 +3,8 @@
         <tr>
             <th pSortableColumn="locationType">Location <p-sortIcon field="locationType"></p-sortIcon></th>
             <th pSortableColumn="zone">Zone<p-sortIcon field="zone"></p-sortIcon></th>
-            <th pSortableColumn="currentCapacity">Current <p-sortIcon field="currentCapacity"></p-sortIcon></th>
-            <th pSortableColumn="maxCapacity">Capacity <p-sortIcon field="maxCapacity"></p-sortIcon></th>
+            <th pSortableColumn="currentCapacity"># No Occupants<p-sortIcon field="currentCapacity"></p-sortIcon></th>
+            <th pSortableColumn="maxCapacity">Max Capacity <p-sortIcon field="maxCapacity"></p-sortIcon></th>
             <th pSortableColumn="occupancyPercent">% Occupancy <p-sortIcon field="occupancyPercent"></p-sortIcon></th>
         </tr>
     </ng-template>
@@ -15,7 +15,8 @@
         <td>{{occupancy.currentCapacity}}</td>
         <td>{{occupancy.maxCapacity}}</td>
         <td>
-            <div [ngClass]="{'overOccupied': (occupancy.occupancyPercent > 100),'inRange': occupancy.occupancyPercent < 100}">
+            <div [ngClass]="{'overCrowded': (occupancy.occupancyPercent > 90),'nearlyFull': (occupancy.occupancyPercent <= 90 && occupancy.occupancyPercent > 75),
+                 'rightSized': (occupancy.occupancyPercent >= 25 && occupancy.occupancyPercent <= 75), 'veryLow': (occupancy.occupancyPercent >= 0 && occupancy.occupancyPercent <= 25) }" >
                 {{occupancy.occupancyPercent}}%
             </div>
         </td>
