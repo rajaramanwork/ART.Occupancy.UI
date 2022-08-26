@@ -139,7 +139,7 @@ export class OccupancyUtilisationComponent implements OnInit {
   
   onZoneChange(event:any) {
     //console.log('event :' + event);
-    //console.log(event.value);
+    console.log(event.value);
     this.occupancyUtilisationService.getOccupancyUtilisation(event.value).subscribe(this.loadData);
   }
 }

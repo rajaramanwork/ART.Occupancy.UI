@@ -48,3 +48,26 @@ Installs - PrimeNG
 ========================================================
 npm install primeng --save
 npm install primeicons --save
+
+Deploying to IIS 
+=================
+//for localhost 
+ng build --base-href 
+
+//for Prod 
+ng build --base-href /Occupancy/
+
+IIS_IUSRS to Application Folder 
+Added web.config 
+
+Install URL Rewrite Module 
+-------------------------
+Download from https://www.iis.net/downloads/microsoft/url-rewrite
+Changed MajorVersion to 9 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\InetStp
+Install UrlRewrite 
+Changed MajorVersion to 10 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\InetStp
+
+Refer : https://indepth.dev/posts/1239/deploy-an-angular-application-to-iis
+
