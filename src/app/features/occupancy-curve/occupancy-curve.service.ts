@@ -14,7 +14,7 @@ import {
 
 export class OccupancyCurveService {
   //apiUrl: string = 'https://dummyjson.com/products/1';
-  apiUrl: string = 'http://localhost:64666/Occupancy';  
+  apiUrl: string = 'http://ec2amaz-i4q5kgj:5050/Occupancy';  
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   
   /*

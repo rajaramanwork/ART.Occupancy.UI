@@ -14,7 +14,7 @@ import {
 
 export class OccupancyUtlisationService {
   //apiUrl: string = 'https://dummyjson.com/products/1';
-  apiUrl: string = 'http://localhost:64666/Occupancy';  
+  apiUrl: string = 'http://ec2amaz-i4q5kgj:5050/Occupancy';  
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private httpClient: HttpClient) {
@@ -27,7 +27,7 @@ export class OccupancyUtlisationService {
     //http://localhost:64666/Occupancy/GetOccupancyUtilisation/08-13-2022'
     //return this.httpClient.get(this.apiUrl + '/GetOccupancyUtilisation/" + "08-13-2022')
     //zone = "home room 1A";
-    return this.httpClient.get('http://localhost:64666/Occupancy/GetOccupancyUtilisation/' + zone+ '/08-13-2022')
+    return this.httpClient.get('http://ec2amaz-i4q5kgj:5050/Occupancy/GetOccupancyUtilisation/' + zone+ '/08-13-2022')
     .pipe(map((resp: any) => resp),
       catchError(error => this.error(error))
     )
